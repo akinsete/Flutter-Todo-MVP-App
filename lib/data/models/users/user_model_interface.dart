@@ -5,6 +5,5 @@ abstract class UserModelInterface {
 
   Future<void> signOutUser();
   Future<String> authenticateUser(String email, String password);
-  Future<bool> checkIfUserEmailExist(String email);
   Future<FirebaseUser> createAccount(String name, String email, String password);
 }

@@ -24,13 +24,6 @@ class TodoListApiService {
     return await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)
         .then((FirebaseUser user){
         _saveUserInfo(name,email,user.uid);
-        return user;
-    });
-  }
-
-  Future<bool> checkIfUserEmailExist(String email) async{
-    return await _firebaseAuth.fetchProvidersForEmail(email: email).then((List<String> providers){
-      return providers.length > 0;
     });
   }
 
@@ -38,19 +31,11 @@ class TodoListApiService {
     return await _firebaseAuth.signOut();
   }
 
-
   void _saveUserInfo(String name, String email, String uid){
     _fireStore.collection('users').document(uid).setData({
       'name': name,
       'uid': uid,
       'email': email
-    });
-  }
-
-  Future<void> fetchUserInfo(userId) async {
-    return _fireStore.collection("users")
-        .document(userId)
-        .snapshots().listen((response){
     });
   }
 
