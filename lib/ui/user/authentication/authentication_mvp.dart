@@ -7,5 +7,5 @@ abstract class AuthenticationView extends BaseView {
 
 
 abstract class AuthenticationPresenter extends BaseMvpPresenter<AuthenticationView> {
-  void loginUser(String email, String password);
+  void authenticateUser(String email, String password);
 }

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_mvp_app/data/models/todo_lists/todo_list.dart';
@@ -18,44 +20,66 @@ class TodoListApiService {
     return user.uid;
   }
 
-  Future<FirebaseUser> createUserAccount(String email,String password) async{
-    return await _firebaseAuth
-        .createUserWithEmailAndPassword(email: email, password: password);
-  }
-
-  Future<List<String>> checkIfUserEmailExist(String email){
-    return _firebaseAuth.fetchProvidersForEmail(email: email);
-  }
-
-  Future<void> fetchUserInfo(String userId) async {
-    return _fireStore.collection("users")
-        .document(userId)
-        .snapshots().listen((response){
-
+  Future<FirebaseUser> createUserAccount(String name, String email,String password) async{
+    return await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)
+        .then((FirebaseUser user){
+        _saveUserInfo(name,email,user.uid);
+        return user;
     });
   }
 
-  Future<List<TodoItem>> fetchTodoList() async {
-    List<TodoItem> items = List();
-    TodoItem _item =  TodoItem();
-    items.add(_item);
-
-    return items;
+  Future<bool> checkIfUserEmailExist(String email) async{
+    return await _firebaseAuth.fetchProvidersForEmail(email: email).then((List<String> providers){
+      return providers.length > 0;
+    });
   }
 
-  Future<TodoItem> createTodoListItem(String title) async {
-    TodoItem _item =  TodoItem();
-
-    return _item;
-  }
-
-  Future<bool> deleteTodoListItem(String id) async {
-      return false;
+  Future<void> signOut() async {
+    return await _firebaseAuth.signOut();
   }
 
 
-  Future<bool> markItemAsDone(String id) async {
-    return false;
+  void _saveUserInfo(String name, String email, String uid){
+    _fireStore.collection('users').document(uid).setData({
+      'name': name,
+      'uid': uid,
+      'email': email
+    });
+  }
+
+  Future<void> fetchUserInfo(userId) async {
+    return _fireStore.collection("users")
+        .document(userId)
+        .snapshots().listen((response){
+    });
+  }
+
+  Future<Stream<QuerySnapshot>> fetchTodoList() async {
+    FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
+    String uid = firebaseUser.uid;
+    return _fireStore.collection("users").document(uid).collection("todo").snapshots();
+  }
+
+  Future<TodoItem> createTodoListItem(TodoItem item) async {
+    FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
+    String uid = firebaseUser.uid;
+    _fireStore.collection("users").document(uid)
+          .collection("todo")
+          .add(item.toMap());
+    return item;
+  }
+
+  Future<void> deleteTodoListItem(String id) async {
+    FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
+    String uid = firebaseUser.uid;
+    _fireStore.collection("users").document(uid).collection("todo").document(id).delete();
+  }
+
+
+  Future<void> updateTodoStatus(String id,bool done) async {
+    FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
+    String uid = firebaseUser.uid;
+    _fireStore.collection("users").document(uid).collection("todo").document(id).updateData({'status':done});
   }
 
 

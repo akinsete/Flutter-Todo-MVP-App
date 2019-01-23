@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1041713290287",
+    "firebase_url": "https://flutter-mvp-todoapp.firebaseio.com",
+    "project_id": "flutter-mvp-todoapp",
+    "storage_bucket": "flutter-mvp-todoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041713290287:android:8a4c24e6d3742bea",
+        "android_client_info": {
+          "package_name": "com.ffslabs.fluttermvpapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041713290287-8ojdjnhvg2l8rk99camclqtvvmvjmukg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKQ9PBmJ8NH2ZF_cbW-jVKSzOotcCJ3ks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

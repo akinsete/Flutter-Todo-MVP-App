@@ -16,10 +16,12 @@ class CreateAccountScreenPresenter extends BasePresenter<CreateAccountView> impl
   }
 
   @override
-  void createUserAccount(String email, String password) {
-    _userModel.createAccount(email, password)
+  void createUserAccount(String name, String email, String password) {
+    _userModel.createAccount(name, email, password)
         .then((FirebaseUser user){
-
+        if(user != null){
+          _createAccountView.accountCreated();
+        }
     }).catchError((onError){
       _createAccountView.showError(onError.details);
     });

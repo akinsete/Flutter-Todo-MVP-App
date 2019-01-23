@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1041713290287-6b1sla3u1knil41ulrsfdkq112f7ug4o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1041713290287-6b1sla3u1knil41ulrsfdkq112f7ug4o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBqFaI2KskhuOZm2qLoDTjGEc3L-1dbKdw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1041713290287</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ffslabs.fluttermvpapp</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-mvp-todoapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-mvp-todoapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1041713290287:ios:8a4c24e6d3742bea</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-mvp-todoapp.firebaseio.com</string>
+</dict>
+</plist>

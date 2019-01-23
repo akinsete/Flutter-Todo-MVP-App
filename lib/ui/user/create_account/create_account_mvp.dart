@@ -7,5 +7,5 @@ abstract class CreateAccountView extends BaseView {
 }
 
 abstract class CreateAccountPresenter extends BaseMvpPresenter<CreateAccountView> {
-  void createUserAccount(String email, String password);
+  void createUserAccount(String name, String email, String password);
 }

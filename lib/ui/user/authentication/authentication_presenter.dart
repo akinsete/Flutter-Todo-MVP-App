@@ -17,16 +17,17 @@ class AuthenticationScreenPresenter extends BasePresenter<AuthenticationView> im
   }
 
   @override
-  void loginUser(String email, String password) {
+  void authenticateUser(String email, String password) {
     _userModel.authenticateUser(email, password)
         .then((userId){
           if(userId != null){
-            view.loginSuccessful();
+            _authenticationView.loginSuccessful();
           }
     }).catchError((onError){
-      _authenticationView.showError(onError.details);
+      _authenticationView.showError(onError.message);
     });
   }
+
 
   @override
   void removeView() {

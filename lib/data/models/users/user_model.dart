@@ -9,21 +9,27 @@ class UserModel extends UserModelInterface {
   UserModel(this._todoListApiService);
 
   @override
-  Future<List<String>> checkIfUserEmailExist(String email) {
+  Future<bool> checkIfUserEmailExist(String email) {
     // TODO: implement checkIfUserEmailExist
     return _todoListApiService.checkIfUserEmailExist(email);
   }
 
   @override
-  Future<FirebaseUser> createAccount(String email, String password) {
+  Future<FirebaseUser> createAccount(String name, String email, String password) {
     // TODO: implement createAccount
-    return _todoListApiService.createUserAccount(email, password);
+    return _todoListApiService.createUserAccount(name, email, password);
   }
 
   @override
   Future<String> authenticateUser(String email, String password) {
     // TODO: implement loginUser
     return _todoListApiService.authenticateUser(email, password);
+  }
+
+  @override
+  Future<void> signOutUser() {
+    // TODO: implement signOutUser
+    return _todoListApiService.signOut();
   }
 
 }
