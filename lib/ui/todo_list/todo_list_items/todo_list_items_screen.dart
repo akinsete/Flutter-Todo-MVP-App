@@ -47,7 +47,7 @@ class TodoListItemScreenState extends BaseState<TodoListItemView> implements Tod
               padding: EdgeInsets.only(right: 10),
               child: ActionChip(
                   backgroundColor: Colors.blueAccent,
-                  label: Text("Sign Out", style: TextStyle(color: Colors.white)),
+                  label: Text("Logout", style: TextStyle(color: Colors.white)),
                   onPressed: (){
                     _todoListItemScreenPresenter.signOut();
                   }
