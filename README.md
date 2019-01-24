@@ -16,9 +16,10 @@ For help getting started with Flutter, view the
 samples, guidance on mobile development, and a full API reference.
 
 # Screenshots
-![SignIn-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png)|
-![SignUp-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png)|
-![Todo-List-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/todo_list.png=100x150)
-![Confirm-Delete](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/confirm_delete.png=100x150)
-![Create-Todo](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/create_todo.png=100x150)
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png" align="left" height="48" width="48" >
+<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png" align="left" height="120" width="180">
+|
+<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png" align="left" height="120" width="180">
+|
+<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/todo_list.png" align="left" height="120" width="180">
+<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/confirm_delete.png" align="left" height="120" width="180">
+<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/create_todo.png" align="left" height="120" width="180">
