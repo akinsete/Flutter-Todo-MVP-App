@@ -4,7 +4,7 @@ A Flutter Todo-List implementing an MVP Architecture.
 
 ## Getting Started
 
-This project is a starting point for a Flutter MVP application.
+A sample Flutter project using Clean architecture and MVP
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -14,6 +14,16 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view the 
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+##Clean architecture
+One of the goals of the clean architecture is to encapsulate the business logic of the application / enterprise in a clean way.
+
+##MVP Explained
+The input begins with the View, not the Presenter.
+There is a one-to-one mapping between the View and the associated Presenter.
+The View holds a reference to the Presenter. The Presenter is also reacting to events being triggered from the View, so its aware of the View its associated with.
+The Presenter updates the View based on the requested actions it performs on the Model, but the View is not Model aware.
+
 
 # Screenshots
 <img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png" align="left" height="250">
