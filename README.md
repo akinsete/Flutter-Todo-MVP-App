@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 # Screenshots
 ![SignIn-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png=100x150)
-![SignUp-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png=100x150)
+![SignUp-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png)
 ![Todo-List-Screen](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/todo_list.png=100x150)
 ![Confirm-Delete](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/confirm_delete.png=100x150)
 ![Create-Todo](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/create_todo.png=100x150)
