@@ -39,7 +39,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
             color: Colors.black
           ),
           automaticallyImplyLeading: true,
-          title: Text("Create Todo", style: TextStyle(color: Colors.black)),
+          title: Text("Add Todo", style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.white,
         ),
         body: Container(
@@ -80,7 +80,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
                             child: new RaisedButton (
                                 elevation: 4,
                                 padding: EdgeInsets.all(5),
-                                child: new Text("Create"),
+                                child: new Text("Submit"),
                                 textColor: Colors.white,
                                 onPressed: (){
                                   _validateInputs();
