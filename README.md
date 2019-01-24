@@ -16,16 +16,8 @@ The Presenter updates the View based on the requested actions it performs on the
 
 
 # Screenshots
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png" height="300">
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png" height="300">
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/todo_list.png" height="300">
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/cofirm_delete.png" height="300">
-<img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/create_todo.png" height="300">
-| <img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png" height="300">        | <img src="https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_up.png" height="300">           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+
+![test](https://github.com/akinsete/Flutter-Todo-MVP-App/blob/master/assets/images/sign_in.png){:height="24px" width="48px"}
 
 ## Contact Developer
 [Twitter](https://twitter.com/AkinseteSunday)
