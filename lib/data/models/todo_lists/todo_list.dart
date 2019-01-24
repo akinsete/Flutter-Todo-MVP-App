@@ -1,7 +1,7 @@
 class TodoItem {
-  String _id;
-  String _title;
-  bool _status;
+  var _id;
+  var _title;
+  var _status;
 
   TodoItem(this._id,this._title,this._status);
 
