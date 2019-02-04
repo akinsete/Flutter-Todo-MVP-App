@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvp_app/base/base_state.dart';
 import 'package:flutter_mvp_app/data/models/todo_lists/todo_list.dart';
 import 'package:flutter_mvp_app/di/injection.dart';
+import 'package:flutter_mvp_app/ui/todo_list/create_todo/create_todo_screen.dart';
 import 'package:flutter_mvp_app/ui/todo_list/todo_list_items/todo_list_items_mvp.dart';
 import 'package:flutter_mvp_app/ui/todo_list/todo_list_items/todo_list_items_presenter.dart';
 
@@ -88,6 +89,13 @@ class TodoListItemScreenState extends BaseState<TodoListItemView> implements Tod
         Container(
           margin: EdgeInsets.only(bottom: 15),
           child: ListTile(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreateTodoListScreen(todoItem: todoItem)),
+              );
+//              Navigator.of(context).pushNamed("/create_todo");
+            },
             onLongPress: (){
               confirmTodoDelete(todoItem);
             },

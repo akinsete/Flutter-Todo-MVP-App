@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvp_app/base/base_state.dart';
+import 'package:flutter_mvp_app/data/models/todo_lists/todo_list.dart';
 import 'package:flutter_mvp_app/di/injection.dart';
 import 'package:flutter_mvp_app/ui/todo_list/create_todo/create_todo_mvp.dart';
 import 'package:flutter_mvp_app/ui/todo_list/create_todo/create_todo_presenter.dart';
 import 'package:flutter_mvp_app/utils/utility.dart';
 
 class CreateTodoListScreen extends StatefulWidget {
+
+  CreateTodoListScreen({Key key, this.todoItem}) : super(key: key);
+  final TodoItem todoItem;
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return CreateTodoListScreenState();
+    return CreateTodoListScreenState(todoItem);
   }
 
 }
@@ -21,6 +25,10 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _title;
   bool _autoValidate = false;
+  final TodoItem _todoItem;
+
+  CreateTodoListScreenState(this._todoItem);
+
 
   @override
   void initState() {
@@ -31,7 +39,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return Material(
       child: Scaffold(
         appBar: AppBar(
@@ -39,7 +47,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
             color: Colors.black
           ),
           automaticallyImplyLeading: true,
-          title: Text("Add Todo", style: TextStyle(color: Colors.black)),
+          title: Text(_todoItem != null ? "Edit Todo" : "Add Todo", style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.white,
         ),
         body: Container(
@@ -52,6 +60,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
                 child: Column(
                   children: <Widget>[
                     TextFormField(
+                      initialValue: _todoItem != null ?_todoItem.title : "",
                       maxLines: 4,
                       style: TextStyle(
                           fontSize: 14.0,
@@ -80,7 +89,7 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
                             child: new RaisedButton (
                                 elevation: 4,
                                 padding: EdgeInsets.all(5),
-                                child: new Text("Submit"),
+                                child: new Text(_todoItem != null ? "Update" : "Submit"),
                                 textColor: Colors.white,
                                 onPressed: (){
                                   _validateInputs();
@@ -104,7 +113,12 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
       _formKey.currentState.save();
       FocusScope.of(context).requestFocus(new FocusNode());
 
-      _createTodoListScreenPresenter.createTodoItem(_title);
+      if(_todoItem == null){
+        _createTodoListScreenPresenter.createTodoItem(_title);
+      }else{
+        _todoItem.title = _title;
+        _createTodoListScreenPresenter.editTodoItem(_todoItem);
+      }
 
     } else {
       setState(() {
@@ -116,6 +130,11 @@ class CreateTodoListScreenState extends BaseState<CreateTodoListScreen> implemen
 
   @override
   void todoListAdded() {
+    Navigator.of(context).pop();
+  }
+
+  @override
+  void todoUpdated() {
     Navigator.of(context).pop();
   }
 }

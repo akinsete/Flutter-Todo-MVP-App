@@ -52,6 +52,16 @@ class TodoListApiService {
     return item;
   }
 
+
+  Future<TodoItem> updateTodoListItem(TodoItem item) async {
+    FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
+    String uid = firebaseUser.uid;
+    _fireStore.collection("users").document(uid)
+        .collection("todo")
+        .document(item.id).updateData(item.toMap());
+    return item;
+  }
+
   Future<void> deleteTodoListItem(String id) async {
     FirebaseUser firebaseUser = await _firebaseAuth.currentUser();
     String uid = firebaseUser.uid;

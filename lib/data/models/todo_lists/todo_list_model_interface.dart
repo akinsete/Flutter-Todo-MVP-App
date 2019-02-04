@@ -8,4 +8,5 @@ abstract class TodoListModelInterface {
   Future<TodoItem> addTodoList(TodoItem item);
   Future<void> deleteTodoList(String id);
   Future<void> updateTodoStatus(String id, bool done);
+  Future<TodoItem> updateTodo(TodoItem item);
 }

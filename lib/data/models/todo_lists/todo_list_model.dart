@@ -29,4 +29,9 @@ class TodoListModel extends TodoListModelInterface{
     return _todoListApiService.updateTodoStatus(id,done);
   }
 
+  @override
+  Future<TodoItem> updateTodo(TodoItem item) {
+    return _todoListApiService.updateTodoListItem(item);
+  }
+
 }

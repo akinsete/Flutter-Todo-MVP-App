@@ -26,4 +26,13 @@ class CreateTodoListScreenPresenter extends BasePresenter<CreateTodoView> implem
     });
   }
 
+  @override
+  void editTodoItem(TodoItem todoItem) {
+    _todoListModel.updateTodo(todoItem)
+        .then((TodoItem item){_createTodoView.todoUpdated();
+    }).catchError((onError){
+      _createTodoView.showError(onError.toString());
+    });
+  }
+
 }
