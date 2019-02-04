@@ -23,6 +23,8 @@ dependencies:
   firebase_auth: 0.6.6
   http: ^0.12.0
   fluttertoast: ^2.2.1
+  flutter_speed_dial: 1.0.9
+  share: 0.6.0
 
 
 dev_dependencies:

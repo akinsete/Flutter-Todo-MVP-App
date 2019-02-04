@@ -5,6 +5,8 @@ import 'package:flutter_mvp_app/di/injection.dart';
 import 'package:flutter_mvp_app/ui/todo_list/create_todo/create_todo_screen.dart';
 import 'package:flutter_mvp_app/ui/todo_list/todo_list_items/todo_list_items_mvp.dart';
 import 'package:flutter_mvp_app/ui/todo_list/todo_list_items/todo_list_items_presenter.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:share/share.dart';
 
 class TodoListItemScreen extends StatefulWidget {
 
@@ -56,26 +58,42 @@ class TodoListItemScreenState extends BaseState<TodoListItemView> implements Tod
             ),
           ],
         ),
-        body: Stack(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 15,left: 5, right: 5),
-              color: Colors.white,
-              child: createTodoList(_todoItems),
+        floatingActionButton: SpeedDial (
+          animatedIcon: AnimatedIcons.menu_close,
+          animatedIconTheme: IconThemeData(size: 22.0),
+          // this is ignored if animatedIcon is non null
+          // child: Icon(Icons.add),
+          visible: true,
+          curve: Curves.fastOutSlowIn,
+          overlayColor: Colors.black,
+          overlayOpacity: 0.5,
+          onOpen: () => print('OPENING DIAL'),
+          onClose: () => print('DIAL CLOSED'),
+          tooltip: 'Speed Dial',
+          heroTag: 'speed-dial-hero-tag',
+          backgroundColor: Colors.blueAccent,
+          foregroundColor: Colors.white,
+          elevation: 8.0,
+          shape: CircleBorder(),
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.share),
+              backgroundColor: Colors.orange,
+              label: 'Share',
+              onTap: () => _shareTodoList(),
             ),
-            Positioned(
-              bottom: 20,
-              right: 0,
-              left: 0,
-              child: FloatingActionButton(
-                  onPressed: (){
-                    Navigator.of(context).pushNamed("/create_todo");
-                  },
-                backgroundColor: Colors.blueAccent,
-                child: Icon(Icons.add),
-              ),
+            SpeedDialChild(
+              child: Icon(Icons.create),
+              backgroundColor: Colors.green,
+              label: 'Create Todo',
+              onTap: () => Navigator.of(context).pushNamed("/create_todo"),
             ),
           ],
+        ),
+        body:  Container(
+          padding: EdgeInsets.only(top: 15,left: 5, right: 5),
+          color: Colors.white,
+          child: createTodoList(_todoItems),
         ),
       ),
     );
@@ -134,9 +152,21 @@ class TodoListItemScreenState extends BaseState<TodoListItemView> implements Tod
       padding: EdgeInsets.all(10), children: tiles);
   }
 
+  void _shareTodoList() {
+    int i = 1;
+    var sb = new StringBuffer();
+    _todoItems.forEach((item){
+      sb.write(i.toString() + ". " + item.title);
+      sb.write("\n");
+      sb.write("\n");
+      i++;
+    });
+    Share.share(sb.toString());
+  }
+
+
   @override
   void updateItemList(List<TodoItem> todoLists) {
-    // TODO: implement updateItemList
     setState(() {
       _todoItems = todoLists;
     });
@@ -177,6 +207,8 @@ class TodoListItemScreenState extends BaseState<TodoListItemView> implements Tod
   void signOutCompleted() {
     Navigator.of(context).pushReplacementNamed("/authentication");
   }
+
+
 
 
 }
